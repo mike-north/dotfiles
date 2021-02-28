@@ -15,11 +15,18 @@ brew "svn"
 brew "jpeg"
 brew "jq"
 brew "node"
+brew "tldr"
+brew "htop"
+brew "prettier"
 brew "python@3.8", link: true
 brew "sqlite"
 brew "tree"
 brew "wget"
+brew "pgcli"
+brew "pgformatter"
+brew "postgresql"
 brew "kube-ps1"
+brew "act"
 cask "firefox"
 cask "flux"
 cask "font-consolas-for-powerline"
@@ -31,6 +38,10 @@ cask "font-roboto-mono"
 cask "font-victor-mono"
 cask "font-roboto-mono-for-powerline"
 cask "hyper"
+mas "Giphy Capture The Gif Maker", id: 668208984
+mas "Codeye", id: 1516894961
+mas "Speedtest by Ookla", id: 1153157709
+mas "Keynote", id: 409183694
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541

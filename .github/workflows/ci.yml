@@ -3,7 +3,7 @@ name: Dotfiles Installation
 on:
   push:
   schedule:
-    - cron: '0 17 * * 4' # Every Day 5:00PM
+    - cron: '0 17 * * 4' # Every Thu 5:00PM
 
 jobs:
   install:

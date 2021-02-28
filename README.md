@@ -30,7 +30,15 @@ git init --bare $HOME/.cfg
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME remote add origin git@github.com:mike-north/dotfiles
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME fetch
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME reset --hard origin master
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME branch --set-upstream-to origin/master
 ```
+Close your terminal and open a new one. At this point you should have a `dotfiles` alias defined
+
+```sh
+which dotfiles
+> dotfiles: aliased to /usr/bin/git --git-dir=/Users/mnorth/.cfg/ --work-tree=/Users/mnorth
+```
+
 At this point you can kind of use `dotconfig` as if it's a specialized `git` command, but just for these files in your home folder (and any others you may explicitly add)
 
 Setup the remote for your repo (it may point to your fork of this repo)

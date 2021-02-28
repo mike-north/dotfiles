@@ -33,5 +33,5 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
           brew install git npm ruby
-          brew bundle
+          HOMEBREW_BUNDLE_MAS_SKIP=true brew bundle
           

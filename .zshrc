@@ -110,6 +110,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Fix for using Homebrew nano
 export PATH="/usr/local/sbin:$PATH"
-alias dotconfig='/usr/bin/git --git-dir=/Users/mnorth/.cfg/ --work-tree=/Users/mnorth'
+alias dotfiles='/usr/bin/git --git-dir=/Users/mnorth/.cfg/ --work-tree=/Users/mnorth'
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

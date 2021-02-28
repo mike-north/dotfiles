@@ -19,15 +19,16 @@ brew "python@3.8", link: true
 brew "sqlite"
 brew "tree"
 brew "wget"
+brew "kube-ps1"
 cask "firefox"
 cask "flux"
 cask "font-consolas-for-powerline"
 cask "font-fira-code"
 cask "font-hack"
-cask "font-monofur"
 cask "font-inconsolata"
 cask "font-inconsolata-for-powerline"
 cask "font-roboto-mono"
+cask "font-victor-mono"
 cask "font-roboto-mono-for-powerline"
 cask "hyper"
 mas "Keynote", id: 409183694
@@ -41,7 +42,7 @@ mas "OmniPlan 3", id: 1040002810
 mas "Deliveries a Package Tracker", id: 290986013
 mas "Daisydisk", id: 411643860
 mas "Bear", id: 1091189122
-mas "iMovie", id: 40898143congi4
+mas "iMovie", id: 408981434
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Tot", id: 1491071483
 mas "Xcode", id: 497799835

@@ -32,6 +32,6 @@ jobs:
       - name: Install
         run: |
           curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-          brew git npm ruby
+          brew install git npm ruby
           brew bundle
           

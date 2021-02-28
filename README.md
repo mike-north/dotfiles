@@ -26,7 +26,10 @@ You can set these up for yourself by running
 ```sh
 # create a git repo to track changes
 git init --bare $HOME/.cfg
-echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc
+# If you fork this repo, remember to update the repo name in the next line!
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME remote add origin git@github.com:mike-north/dotfiles
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME fetch
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME reset --hard origin master
 ```
 At this point you can kind of use `dotconfig` as if it's a specialized `git` command, but just for these files in your home folder (and any others you may explicitly add)
 

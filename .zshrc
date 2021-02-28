@@ -105,6 +105,8 @@ export EDITOR='nano'
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/mnorth/Development/tmp/em-elec/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/mnorth/Development/tmp/em-elec/node_modules/tabtab/.completions/electron-forge.zsh
+#Homebrew
+export PATH="$PATH:/opt/homebrew/bin"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 

@@ -1,5 +1,7 @@
 # Mike's Dotfiles
 
+[![Dotfiles Installation](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml)
+
 These are my own dotfiles
 
 ## What these affect

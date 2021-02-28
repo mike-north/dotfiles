@@ -1,3 +1,4 @@
+
 #################################
 # User Information
 #################################
@@ -103,3 +104,9 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+
+[includeIf "gitdir:~/Development/oss/"]
+   path = ~/.config/gitconfig-parts/oss.gitconfig
+
+[includeIf "gitdir:~/Development/linkedin/"]
+   path = ~/.config/gitconfig-parts/linkedin.gitconfig

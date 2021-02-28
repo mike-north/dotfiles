@@ -1,4 +1,4 @@
-# Mike's Dotfiles
+# Mike North's Dotfiles
 
 [![Dotfiles Installation](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml)
 

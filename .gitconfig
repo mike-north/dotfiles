@@ -1,0 +1,8 @@
+[include]
+   path = /Users/mnorth/.gitconfig-parts/all.gitconfig
+
+[includeIf "gitdir:/Users/mnorth/Development/oss/"]
+   path = /Users/mnorth/.gitconfig-parts/oss.gitconfig
+
+[includeIf "gitdir:/Users/mnorth/Development/linkedin/"]
+   path = /Users/mnorth/.gitconfig-parts/linkedin.gitconfig

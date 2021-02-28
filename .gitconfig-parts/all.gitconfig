@@ -1,0 +1,19 @@
+[rerere]
+   enabled = true
+[core]
+   excludesfile = ~/.gitignore
+   whitespace = cr-at-eol
+   editor = nano -l -w
+   filemode = true
+   bare = false
+   logallrefupdates = true
+   ignorecase = true
+   precomposeunicode = true
+[user]
+   name = Mike North
+   email = michael.l.north@gmail.com
+   signingkey = 330D61B616CDFED3
+[commit]
+	gpgsign = true
+[alias]
+   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --simplify-by-decoration

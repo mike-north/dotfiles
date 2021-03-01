@@ -106,7 +106,7 @@
 	newHighlight = green bold 22
 
 [includeIf "gitdir:~/Development/oss/"]
-   path = ~/.config/gitconfig-parts/oss.gitconfig
+   path = ~/.config/git/oss.gitconfig
 
 [includeIf "gitdir:~/Development/linkedin/"]
-   path = ~/.config/gitconfig-parts/linkedin.gitconfig
+   path = ~/.config/git/linkedin.gitconfig

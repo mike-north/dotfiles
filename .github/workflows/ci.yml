@@ -5,9 +5,12 @@ on:
   schedule:
     - cron: '0 17 * * 4' # Every Thu 5:00PM
 
+
 jobs:
   install:
     runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_BUNDLE_MAS_SKIP: true
     strategy:
       matrix:
         os: [macos-latest]

@@ -1,4 +1,4 @@
-# Mike's Dotfiles
+# Mike North's Dotfiles
 
 [![Dotfiles Installation](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/mike-north/dotfiles/actions/workflows/ci.yml)
 
@@ -29,7 +29,7 @@ git init --bare $HOME/.cfg
 # If you fork this repo, remember to update the repo name in the next line!
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME remote add origin git@github.com:mike-north/dotfiles
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME fetch
-git --git-dir=$HOME/.cfg/ --work-tree=$HOME reset --hard origin master
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME reset --hard origin/master
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME branch --set-upstream-to origin/master
 ```
 Close your terminal and open a new one. At this point you should have a `dotfiles` alias defined

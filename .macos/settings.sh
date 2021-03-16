@@ -66,6 +66,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 
 # Dock size and location:
 defaults write com.apple.Dock size-immutable -bool yes
+defaults write com.apple.dock tilesize -integer 54
 
 # Show Dock instantly:
 defaults write com.apple.dock autohide-delay -float 0

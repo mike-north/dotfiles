@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export GITHUB_AUTH=ec1937e94f8f5eebe12b862cd937d66e5edeee5c
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mnorth/.oh-my-zsh"
@@ -9,13 +8,13 @@ export ZSH="/Users/mnorth/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -100,11 +99,6 @@ export EDITOR='nano'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/mnorth/Development/tmp/em-elec/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/mnorth/Development/tmp/em-elec/node_modules/tabtab/.completions/electron-forge.zsh
 #Homebrew
 export PATH="$PATH:/opt/homebrew/bin"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

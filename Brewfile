@@ -19,7 +19,7 @@ brew "nano"
 brew "tldr"
 brew "htop"
 brew "prettier"
-brew "python@3.8", link: true
+brew "python@3.9", link: true
 brew "sqlite"
 brew "tree"
 brew "wget"

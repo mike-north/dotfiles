@@ -115,3 +115,4 @@ export PATH="/usr/local/sbin:$PATH"
 alias dotfiles='/usr/bin/git --git-dir=/Users/mnorth/.cfg/ --work-tree=/Users/mnorth'
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"

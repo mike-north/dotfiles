@@ -1,0 +1,26 @@
+---
+alwaysApply: false
+---
+
+# Breaking down big changes into incremental PRs
+
+When this set of rules is mentioned, it's because I'd like to break this down into a sequence of stacked PRs (https://trailhead.corp.stripe.com/docs/stack), each of which
+- builds successfully
+- has no lint warnings or errors linting
+- has meaningful tests
+- has an up-to-date API report (look for the npm script to run api-extractor)
+- has up-to-date generated docs (look for the npm script to run api-documenter)
+- each PR should be in a branch, with the next PR in the stack using the HEAD of the previous PR as the base commit
+
+The hope is to keep each PR under 1000 lines, not accounting for generated content like lockfiles, the API report (possibly in a `./api-report` subfolder) and docs (possibly in a `./docs` subfolder).
+
+## Recommended things to add as you go
+It's ok (and encouraged) to
+- Write tests can go beyond what's implemented right now
+- Improve code commenting
+- Fix bugs as you find them
+
+## Do not break PRs up by stricly choosing entire files (in their current state) to introduce in layers
+- Each PR should leave the project in an understandable state. This will _almost always_ involve making changes to files incrementally.
+- Arrange PRs in terms of introducing _capabilities_, and then layer new capabilities on top in successive PRs
+- Tests for the new capabilities should always be introduced in the same PR

@@ -1,0 +1,70 @@
+---
+appliesTo: ['*.ts', '*.mts', '*.cts', '*.tsx']
+alwaysApply: true
+---
+
+# Library concerns
+
+## Tsconfig
+
+- Avoid using options that require consumers of a library to also enable these settings. Examples are `esModuleInterop`, `allowSyntheticDefaultImports` and `skipLibCheck`
+- Always ask the user for permission before setting `skipLibCheck: true`
+- Enable `strict: true` in @tsconfig.json with additional flags:
+  - `noImplicitAny: true`
+  - `strictNullChecks: true`
+  - `strictFunctionTypes: true`
+  - `strictBindCallApply: true`
+  - `strictPropertyInitialization: true`
+  - `noImplicitThis: true`
+  - `alwaysStrict: true`
+  - `exactOptionalPropertyTypes: true`
+- Never use `// @ts-ignore` or `// @ts-expect-error` without explanatory comments
+- Use `--noEmitOnError` compiler flag to prevent generating JS files when TypeScript errors exist
+
+# Type safety and best practices
+
+- Type guards must be strongly preferred over casting and the non-null assertion operator
+- Use of the `as` keyword only strongarms the compiler, it does not provide runtime type-safety, and in fact introduces potential bugs where type information and runtime behavior can become misaligned
+- Use of the explicit `any` type should be _incredibly rare_ (e.g. for parameters that can be any JS value, like arguments for `console.log`)
+- Explicitly type function parameters, return types, and object literals.
+- Never use `enum`. Use a union if you feel tempted to use an Enum.
+- Use `readonly` modifiers for immutable properties and arrays.
+- Presume values are `readonly` unless mutability is expressly needed, presume variables are `const` declarations unless reassignment is needed
+- Leverage TypeScript's utility types (`Partial`, `Required`, `Pick`, `Omit`, `Record`, etc.)
+- Use discriminated unions with exhaustiveness checking for type narrowing
+
+# Documenting
+
+- Use [tsdoc](https://tsdoc.org/) for code comments, and keep them in sync with the implementation.
+- Document assumptions and known limitations if any exist
+- Libraries that have a dependency on @microsoft-api/extractor should use the [doc comment syntax](https://api-extractor.com/pages/tsdoc/doc_comment_syntax/) and tags provided by that library.
+- Any exported symbol must be marked as either `@internal`, `@alpha`, `@beta` or `@public`
+  - Classes that are exported must explicitly denote whether their `protected` or `public` class fields and methods (including static fields and methods) are `@internal`, `@alpha`, `@beta` or `@public`. Sometimes we'll need to expose things using the TypeScript `public` access modifier keyword for internal purposes (e.g. testing) but do not want to _document_ them as part of our public API. This is why using the api-extractor comment tags is critical
+- When referring to other code entities in comments, use the `{@link <symbol>}` syntax
+
+- Use nullish coalescing (`??`) and optional chaining (`?.`) operators appropriately
+- Prefix unused variables with underscore (e.g., \_unusedParam)
+
+# Code style
+
+- Always use curly braces for control structures, even for single-line blocks
+- Prefer object spread (e.g. `{ ...args }`) over `Object.assign`
+- Use rest parameters instead of `arguments` object
+- Use template literals instead of string concatenation
+
+# Import Organization
+
+- Keep imports at the top of the file
+- Group imports in this order: `built-in → external → internal → parent → sibling → index → object → type`
+- Add blank lines between import groups
+- Sort imports alphabetically within each group
+- Avoid duplicate imports
+- Avoid circular dependencies
+- Ensure member imports are sorted (e.g., `import { A, B, C } from 'module'`)
+- Separate type-only imports (`import type { ...}  from "module"`) and value+type imports (`import {...} from "module"`) but you may keep them in the same import group
+
+# Console Usage
+
+- Console statements are allowed but should be used judiciously
+
+**Keep in Mind**: The code will be parsed using TypeScript compiler with strict type checking enabled and should adhere to modern ECMAScript standards.

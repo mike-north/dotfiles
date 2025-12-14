@@ -1,0 +1,13 @@
+# API Extractor & API Documenter
+
+See [`llm/shared/api-extractor.md`](../shared/api-extractor.md) for comprehensive guidance.
+
+## Quick Reference
+
+- **Always set up in libraries**: Use both `@microsoft/api-extractor` and `@microsoft/api-documenter`
+- **Use version 8**: Install `@microsoft/api-extractor@^8.0.0` even if v9 appears available
+- **Build declarations first**: Run `tsc` before `api-extractor` (it needs `.d.ts` files as input)
+- **--local for dev, omit for CI**: Use `api-extractor run --local` to update, omit `--local` to validate
+- **Generate markdown docs**: Run `api-documenter markdown -i temp -o docs` after api-extractor
+- **Commit generated docs**: Commit `/docs` and `/api-report` folders to git
+

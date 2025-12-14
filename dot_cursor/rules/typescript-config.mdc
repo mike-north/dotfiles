@@ -1,0 +1,16 @@
+---
+description: TypeScript compiler configuration best practices - strict mode, safe options, no emit on error
+appliesTo: ['**/*tsconfig*.json']
+alwaysApply: true
+---
+
+# TypeScript Configuration
+
+Quick reminders (see `llm/shared/typescript-config.md` for full details):
+
+- ✓ **Enable strict mode** - Set `strict: true` with all additional strictness flags
+- ✓ **Avoid leaky library options** - Don't use `esModuleInterop`, `allowSyntheticDefaultImports` in libraries
+- ✓ **Ask before skipLibCheck** - Always get permission before setting `skipLibCheck: true`
+- ✓ **Prevent bad builds** - Use `noEmitOnError: true` to block compilation with errors
+- ✓ **Document type suppressions** - Never use `@ts-ignore` or `@ts-expect-error` without explanatory comments
+- ✓ **Use @ts-expect-error over @ts-ignore** - Fails if error is fixed, better for temporary suppressions

@@ -1,0 +1,15 @@
+# TypeScript Library Development
+
+See [`llm/shared/typescript-library.md`](../shared/typescript-library.md) for comprehensive guidance.
+
+## Quick Reference
+
+- **Avoid leaky tsconfig options**: Don't use `esModuleInterop`, `allowSyntheticDefaultImports`, or `skipLibCheck`
+- **Use strict ESLint**: Enable `plugin:@typescript-eslint/strict-type-checked` preset
+- **Allow intentional unused with `_` prefix**: Configure ESLint to ignore `_`-prefixed vars/params
+- **Use API Extractor**: Generate `.d.ts` rollups with `@microsoft/api-extractor`
+- **Point `package.json#types`**: Set to the API Extractor rollup file
+- **Error on API issues**: Configure api-extractor to fail on validation problems
+- **Commit API reports**: Put final reports in `/api-report`, commit to git
+- **Gitignore temp files**: Use `/temp` with `.gitkeep` for intermediates
+

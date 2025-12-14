@@ -1,0 +1,17 @@
+---
+description: TypeScript ESLint configuration - strict-type-checked, Prettier for formatting, unused vars with underscore
+appliesTo: ['**/.eslintrc*', '**/eslint.config.*', '**/.prettierrc*']
+alwaysApply: false
+---
+
+# TypeScript Linting with ESLint
+
+Quick reminders (see `llm/shared/typescript-linting.md` for full details):
+
+- ✓ **Always use ESLint** - Set up ESLint for all TypeScript projects
+- ✓ **Use comprehensive presets** - Enable `strict-type-checked` + `stylistic-type-checked`
+- ✓ **Use Prettier for formatting** - Don't use ESLint for formatting; add `"prettier"` last in extends
+- ✓ **Use eslint-config-prettier** - Disables formatting rules (NOT eslint-plugin-prettier)
+- ✓ **Allow underscore-prefixed unused** - Configure `argsIgnorePattern: "^_"` and `varsIgnorePattern: "^_"`
+- ✓ **Disable no-plusplus** - Set `"no-plusplus": "off"` to allow `++` and `--` operators
+- ✓ **Set parserOptions.project** - Point to `tsconfig.json` for type-aware rules

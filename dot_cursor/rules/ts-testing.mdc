@@ -1,0 +1,14 @@
+---
+appliesTo: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx']
+alwaysApply: true
+description: TypeScript testing best practices - negative tests, helpers, jest vs tsd
+---
+
+# TypeScript Testing
+
+Quick reminders (see `llm/shared/typescript-testing.md` for full details):
+
+- ✓ Write **negative test cases** (things that should fail, not just happy paths)
+- ✓ Create **reusable test helpers** when code gets repetitive
+- ✓ Use **jest** for runtime logic, **tsd** for type checking
+- ✓ Utility types need comprehensive **tsd tests** (positive + negative cases)

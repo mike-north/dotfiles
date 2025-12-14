@@ -1,0 +1,9 @@
+{{- if .isWork }}
+[".chezmoi-work"]
+type = "git-repo"
+url = "ssh://git@git.corp.stripe.com/mnorth/dotfiles-work.git"
+refreshPeriod = "168h"
+
+[".chezmoi-work".clone]
+args = ["--depth", "1"]
+{{- end }}

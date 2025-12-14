@@ -1,0 +1,35 @@
+#!/bin/bash
+# Script to strip "Committed-By-Agent" footers from recent commits
+# Usage: ./strip-agent-footer.sh [number_of_commits]
+#
+# This script rewrites the specified number of commits (default: 1)
+# to remove any "Committed-By-Agent" lines from commit messages.
+
+set -e
+
+NUM_COMMITS=${1:-1}
+
+echo "Stripping agent footers from the last $NUM_COMMITS commit(s)..."
+
+# Get the base commit (the one before our commits to fix)
+BASE_COMMIT=$(git rev-parse "HEAD~$NUM_COMMITS")
+
+# Create a temporary file for the filter script
+FILTER_SCRIPT=$(mktemp)
+cat > "$FILTER_SCRIPT" << 'FILTER_EOF'
+#!/bin/bash
+# Read commit message, strip Committed-By-Agent lines and trailing whitespace
+sed '/^Committed-By-Agent:/d' | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'
+FILTER_EOF
+chmod +x "$FILTER_SCRIPT"
+
+# Use git filter-branch to rewrite commits
+export FILTER_BRANCH_SQUELCH_WARNING=1
+git filter-branch -f --msg-filter "$FILTER_SCRIPT" "${BASE_COMMIT}..HEAD"
+
+# Clean up
+rm -f "$FILTER_SCRIPT"
+
+echo "Done! Commit messages have been cleaned."
+echo "You may need to force push: git push --force-with-lease"
+

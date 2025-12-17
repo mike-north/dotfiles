@@ -2,9 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# Added by `nodenv init` on Wed Nov 26 18:08:45 PST 2025
-status --is-interactive; and nodenv init - --no-rehash fish | source
-
 # pnpm
 set -gx PNPM_HOME "/Users/mnorth/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
@@ -65,5 +62,40 @@ alias .... "cd ../../.."
 alias reload "exec $SHELL -l"
 alias path 'printf "%s\n" $PATH'
 
+# These lines are commented out because they interfere with bobthefish directory display.
+# If you need rbenv/nodenv, you may need to use a different fish theme.
+#
+# Added by `nodenv init` on Wed Nov 26 18:08:45 PST 2025
+# status --is-interactive; and nodenv init - --no-rehash fish | source
+#
 # Added by `rbenv init` on Tue Dec  2 10:38:01 PST 2025
-status --is-interactive; and rbenv init - --no-rehash fish | source
+# status --is-interactive; and rbenv init - --no-rehash fish | source
+
+# Gruvbox Dark colors for Agnoster theme
+# Override agnoster theme colors to match gruvbox-dark
+set -g color_virtual_env_bg fabd2f        # yellow
+set -g color_virtual_env_str 282828       # dark bg
+set -g color_user_bg 3c3836               # dark gray
+set -g color_user_str fabd2f              # yellow
+set -g color_dir_bg 458588                # blue
+set -g color_dir_str ebdbb2               # light fg
+set -g color_hg_changed_bg fabd2f         # yellow
+set -g color_hg_changed_str 282828        # dark bg
+set -g color_hg_bg b8bb26                 # green
+set -g color_hg_str 282828                # dark bg
+set -g color_git_dirty_bg fabd2f          # yellow
+set -g color_git_dirty_str 282828         # dark bg
+set -g color_git_bg b8bb26                # green
+set -g color_git_str 282828               # dark bg
+set -g color_svn_bg b8bb26                # green
+set -g color_svn_str 282828               # dark bg
+set -g color_status_nonzero_bg 282828     # dark bg
+set -g color_status_nonzero_str fb4934    # red
+set -g color_status_superuser_bg 282828   # dark bg
+set -g color_status_superuser_str fabd2f  # yellow
+set -g color_status_jobs_bg 282828        # dark bg
+set -g color_status_jobs_str 83a598       # cyan
+set -g color_status_private_bg 282828     # dark bg
+set -g color_status_private_str d3869b    # purple
+
+theme_gruvbox dark

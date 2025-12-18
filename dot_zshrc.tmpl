@@ -1,0 +1,122 @@
+### BEGIN STRIPE
+# All Stripe related shell configuration
+# is at ~/.stripe/shellinit/zshrc and is
+# persistently managed by Chef. You shouldn't
+# remove this unless you don't want to load
+# Stripe specific shell configurations.
+#
+# Feel free to add your customizations in this
+# file (~/.zshrc) after the Stripe config
+# is sourced.
+if [[ -f ~/.stripe/shellinit/zshrc ]]; then
+  source ~/.stripe/shellinit/zshrc
+fi
+### END STRIPE
+
+################################################################################
+# COMMON CONFIGURATION (All Environments)
+################################################################################
+
+# Function to add directory to PATH without duplicates
+add_to_path() {
+    local dir="$1"
+    local position="${2:-prepend}"  # prepend or append, default to prepend
+
+    # Create directory if it doesn't exist
+    if [[ ! -d "$dir" ]]; then
+        mkdir -p "$dir" 2>/dev/null || return 1
+    fi
+
+    # Check if directory is already in PATH
+    if [[ ":$PATH:" != *":$dir:"* ]]; then
+        if [[ "$position" == "append" ]]; then
+            export PATH="$PATH:$dir"
+        else
+            export PATH="$dir:$PATH"
+        fi
+    fi
+}
+
+# Add local bin directory to PATH
+add_to_path "$HOME/.local/bin"
+
+source $HOME/.zshenv
+eval "$(rbenv init - zsh)"
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# NVM configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(nodenv init -)"
+
+# Source shared aliases (bash/zsh compatible)
+if [[ -f "$HOME/.config/shell/aliases" ]]; then
+  source "$HOME/.config/shell/aliases"
+fi
+
+# Set EDITOR to nvim if available
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR="$(command -v nvim)"
+fi
+
+################################################################################
+# WORK CONFIGURATION (Source from work repo)
+################################################################################
+{{- $payServerRemote := stat "/pay/src/pay-server" -}}
+{{- $payServerLocal := stat (joinPath .chezmoi.homeDir "stripe/pay-server") -}}
+{{- if or $payServerRemote $payServerLocal }}
+
+WORK_DOTFILES="$HOME/.config/dotfiles-work"
+
+# Source work-specific config (all OSes)
+if [[ -f "$WORK_DOTFILES/zsh/work-common.zsh" ]]; then
+  source "$WORK_DOTFILES/zsh/work-common.zsh"
+fi
+
+# Source OS-specific work config
+{{- if eq .chezmoi.os "darwin" }}
+if [[ -f "$WORK_DOTFILES/zsh/work-darwin.zsh" ]]; then
+  source "$WORK_DOTFILES/zsh/work-darwin.zsh"
+fi
+{{- else if eq .chezmoi.os "linux" }}
+if [[ -f "$WORK_DOTFILES/zsh/work-linux.zsh" ]]; then
+  source "$WORK_DOTFILES/zsh/work-linux.zsh"
+fi
+{{- end }}
+
+################################################################################
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+# macOS SPECIFIC CONFIGURATION (Personal)
+################################################################################
+
+# Homebrew paths
+add_to_path "/opt/homebrew/opt/dotnet@8/bin"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+add_to_path "$PNPM_HOME"
+
+# 1Password CLI plugins
+if [[ -f "$HOME/.config/op/plugins.sh" ]]; then
+  source "$HOME/.config/op/plugins.sh"
+fi
+
+################################################################################
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+# LINUX SPECIFIC CONFIGURATION (Personal)
+################################################################################
+
+# Add any personal Linux-specific configuration here
+
+################################################################################
+{{- end }}

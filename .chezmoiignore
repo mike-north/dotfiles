@@ -1,0 +1,3 @@
+# Ignore work repo templates (these are for copying to the work repo, not deploying)
+.work-repo-templates/
+

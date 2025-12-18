@@ -1,9 +1,12 @@
-{{- if .isWork }}
-[".chezmoi-work"]
+{{- $payServerRemote := stat "/pay/src/pay-server" -}}
+{{- $payServerLocal := stat (joinPath .chezmoi.homeDir "stripe/pay-server") -}}
+{{- if or $payServerRemote $payServerLocal }}
+# Clone entire work dotfiles repo
+[".config/dotfiles-work"]
 type = "git-repo"
 url = "ssh://git@git.corp.stripe.com/mnorth/dotfiles-work.git"
 refreshPeriod = "168h"
 
-[".chezmoi-work".clone]
+[".config/dotfiles-work".clone]
 args = ["--depth", "1"]
 {{- end }}

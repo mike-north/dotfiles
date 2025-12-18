@@ -1,0 +1,16 @@
+# Work repo templates - these should be copied to the work repo, not committed here
+.work-repo-templates/
+
+# Chezmoi working files
+.chezmoi-work/
+
+# OS-specific files
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
